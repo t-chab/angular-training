@@ -1,0 +1,21 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}} !
+  </h1>
+  <div *ngIf="users.length > 0 ; else loadingWait">
+    <div [ngPlural]="users.length">
+      <ng-template ngPluralCase="=0">No users.</ng-template>
+      <ng-template ngPluralCase="=1">There’s only 1 user available.</ng-template>
+      <ng-template ngPluralCase="other">There are {{users.length}} users available.</ng-template>
+    </div>
+    <div *ngFor="let user of users"
+         [ngStyle]="{'font-size.px': user.age}"
+         [ngClass]="{'male': user.sex === 'MALE', 'female': user.sex === 'FEMALE' }">
+      {{user.firstName}} {{user.name}}
+    </div>
+  </div>
+  <ng-template #loadingWait>
+    <div><h1>Wait for app loading ...</h1></div>
+  </ng-template>
+</div>
