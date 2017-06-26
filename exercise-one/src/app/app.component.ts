@@ -14,22 +14,25 @@ interface IUser {
 })
 export class AppComponent {
   title = 'app';
-  maxWait: 15000;
-  minWait: 5000;
+  waitTime: 5000;
   users: IUser[] = <IUser[]>[];
 
   constructor() {
     const numbers = [0, 1, 2, 3];
-    setTimeout(function () {
-    }, Math.floor(Math.random() * (this.maxWait - this.minWait)) + 1 + this.minWait);
-    for (const i of numbers) {
-      const user: IUser = {
-        name: 'Name' + i,
-        firstName: 'FirstName' + i,
-        age: Math.floor(Math.random() * 100) + 1,
-        sex: Math.abs(i % 2) === 1 ? 'MALE' : 'FEMALE'
-      };
-      this.users[i] = user;
-    }
+    setTimeout(() => {
+      for (const i of numbers) {
+        const user: IUser = {
+          name: 'Name' + i,
+          firstName: 'FirstName' + i,
+          age: Math.floor(Math.random() * 100) + 1,
+          sex: Math.abs(i % 2) === 1 ? 'MALE' : 'FEMALE'
+        };
+        this.users[i] = user;
+      }
+    }, this.waitTime);
+  }
+
+  updateUserAge(user: IUser, age: number) {
+    user.age = age;
   }
 }

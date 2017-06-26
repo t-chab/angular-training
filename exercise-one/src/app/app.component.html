@@ -12,10 +12,10 @@
     <div *ngFor="let user of users"
          [ngStyle]="{'font-size.px': user.age}"
          [ngClass]="{'male': user.sex === 'MALE', 'female': user.sex === 'FEMALE' }">
-      {{user.firstName}} {{user.name}}
+      {{user.name}} a <input type="number" [value]="user.age" (change)="updateUserAge(user, $event.target.value)"> ans
     </div>
   </div>
   <ng-template #loadingWait>
-    <div><h1>Wait for app loading ...</h1></div>
+    <h1>Wait for app loading ...</h1>
   </ng-template>
 </div>
