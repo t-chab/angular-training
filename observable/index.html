@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8/>
+    <title>Observable playground</title>
+    <script data-require="rxjs@*" data-semver="5.1.1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.1/Rx.min.js"></script>
+    <script src="observable.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <input type="range" min="0" max="50" id="range-1">
+    <span id="range-1-value"></span>
+
+    <br/>
+
+    <input type="range" min="0" max="50" id="range-2">
+    <span id="range-2-value"></span>
+
+    <br/>
+
+    <span id="sum"></span>
+    <br/>
+    <button id="stop">Stop</button>
+</body>
+</html>

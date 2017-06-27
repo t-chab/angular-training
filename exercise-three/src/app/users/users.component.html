@@ -1,0 +1,5 @@
+<div *ngFor="let user of users$ |async"
+     [ngStyle]="{'font-size.px': user.age}"
+     [ngClass]="{'male': user.gender === 'M', 'female': user.gender === 'F' }">
+<app-user [user]="user"></app-user>
+</div>
